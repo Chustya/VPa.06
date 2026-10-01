@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Чек стандартный</title>
+<style>
+    @page {
+        size: A4;
+        margin: 15mm;
+    }
+    body {
+        font-family: "Roboto", "Liberation Sans", sans-serif;
+        font-size: 11pt;
+        color: #222;
+        margin: 0;
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 2px solid #333;
+        padding-bottom: 8px;
+        margin-bottom: 16px;
+    }
+    .company { text-align: right; font-size: 9pt; color: #555; }
+    h1 { font-size: 20pt; margin: 0 0 12px; }
+
+    /* Таблица с реквизитами и таблица услуг */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 14px;
+    }
+    th, td {
+        border: 1px solid #999;
+        padding: 6px 8px;
+        text-align: left;
+        vertical-align: top;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+    th { background: #eee; font-weight: bold; }
+    .info th { width: 30%; }
+    .num { text-align: right; white-space: nowrap; }
+    .total { font-size: 14pt; font-weight: bold; text-align: right; }
+    .footer { margin-top: 30px; font-size: 9pt; color: #666; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div>{{logo}}</div>
+    <div class="company">
+        ООО «Ромашка»<br>
+        ИНН 7700000000<br>
+        г. Москва, ул. Примерная, д. 1
+    </div>
+</div>
+
+<h1>КАССОВЫЙ ЧЕК № {{number}}</h1>
+
+<table class="info">
+    <tr><th>Дата</th><td>{{date}}</td></tr>
+    <tr><th>Клиент</th><td>{{name}}</td></tr>
+    <tr><th>Адрес</th><td>{{address}}</td></tr>
+    <tr><th>Способ оплаты</th><td>{{payment}}</td></tr>
+</table>
+
+<table>
+    <thead>
+        <tr>
+            <th>Наименование</th>
+            <th class="num">Кол-во</th>
+            <th class="num">Цена</th>
+            <th class="num">Сумма</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{service}}</td>
+            <td class="num">{{quantity}}</td>
+            <td class="num">{{price}}</td>
+            <td class="num">{{amount}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<p class="total">ИТОГО: {{amount}} руб.</p>
+
+<p><b>Комментарий:</b> {{comment}}</p>
+
+<div class="footer">Документ сформирован {{today}}. Спасибо за покупку!</div>
+
+</body>
+</html>

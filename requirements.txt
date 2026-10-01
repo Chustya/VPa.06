@@ -1,0 +1,8 @@
+# HTML -> PDF (в Windows дополнительно нужна библиотека Pango, см. README.md)
+weasyprint>=61
+# Чтение таблиц Excel в единый формат
+pandas>=2.0
+# Движок pandas для файлов .xlsx
+openpyxl>=3.1
+# Движок pandas для старых файлов .xls
+xlrd>=2.0.1

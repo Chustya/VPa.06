@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Чек об оплате услуг</title>
+<!--
+    Шаблон для таблицы с колонками: Клиент | услуга | стоимость | дата
+    Если у колонки с датой в Excel нет заголовка, напишите в первой строке «дата».
+-->
+<style>
+    @page { size: A4; margin: 15mm; }
+    body {
+        font-family: "Roboto", "Liberation Sans", sans-serif;
+        font-size: 11pt;
+        color: #222;
+    }
+    .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 2px solid #333;
+        padding-bottom: 8px;
+        margin-bottom: 16px;
+    }
+    h1 { font-size: 18pt; margin: 0 0 12px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+    th, td {
+        border: 1px solid #999;
+        padding: 6px 8px;
+        text-align: left;
+        vertical-align: top;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+    th { background: #eee; }
+    .num { text-align: right; white-space: nowrap; width: 25%; }
+    .total { font-size: 14pt; font-weight: bold; text-align: right; }
+    .footer { margin-top: 30px; font-size: 9pt; color: #666; }
+</style>
+</head>
+<body>
+
+<div class="top">
+    <div>{{logo}}</div>
+    <div>Дата: {{дата}}</div>
+</div>
+
+<h1>ЧЕК ОБ ОПЛАТЕ УСЛУГ № {{record_number}}</h1>
+
+<p><b>Клиент:</b> {{Клиент}}</p>
+
+<table>
+    <thead>
+        <tr><th>Услуга</th><th class="num">Стоимость, руб.</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>{{услуга}}</td><td class="num">{{стоимость}}</td></tr>
+    </tbody>
+</table>
+
+<p class="total">ИТОГО: {{стоимость}} руб.</p>
+
+<div class="footer">Документ сформирован {{today}}.</div>
+
+</body>
+</html>

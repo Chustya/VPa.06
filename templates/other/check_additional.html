@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Чек дополнительный (узкий, 80 мм)</title>
+<style>
+    /* Узкая «кассовая лента» шириной 80 мм; высота подбирается по содержимому страниц */
+    @page {
+        size: 80mm 200mm;
+        margin: 5mm;
+    }
+    body {
+        font-family: "Roboto", "Liberation Sans", sans-serif;
+        font-size: 9pt;
+        max-width: 80mm;
+        margin: 0 auto;
+    }
+    .center { text-align: center; }
+    .logo { margin: 0 auto 6px; }
+    h2 { font-size: 12pt; margin: 4px 0; }
+    hr { border: none; border-top: 1px dashed #333; margin: 6px 0; }
+    /* Таблица со всеми полями записи (плейсхолдер all_fields_table) */
+    table.all-fields th, table.all-fields td {
+        border: none;
+        border-bottom: 1px dotted #999;
+        padding: 3px 2px;
+        font-size: 8.5pt;
+    }
+    table.all-fields th { background: none; width: 40%; }
+</style>
+</head>
+<body>
+
+<div class="center">
+    {{logo}}
+    <h2>ДОПОЛНИТЕЛЬНЫЙ ЧЕК</h2>
+    № {{number}} от {{date}}
+</div>
+<hr>
+{{all_fields_table}}
+<hr>
+<p class="center"><b>ИТОГО: {{amount}} руб.</b></p>
+<p class="center">Запись № {{record_number}} · распечатано {{today}}</p>
+
+</body>
+</html>
